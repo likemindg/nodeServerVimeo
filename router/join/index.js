@@ -20,5 +20,9 @@ router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../../public/join.html'))
 })
 
+router.post('/', function(req, res) {
+    var body = req.body;
+    console.log(body.email);
+})
 
 module.exports = router;

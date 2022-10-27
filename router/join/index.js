@@ -20,5 +20,19 @@ router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../../public/join.html'))
 })
 
+router.post('/', function(req, res){
+    var body = req.body;
+    var email = body.email;
+    var name = body.name;
+    var passwd = body.password;
+
+    var sql = {email : email, name : name, pw : passwd}
+    var query = connection.query('insert into USER set ?', sql, function(err, rows) {
+        if(err) throw err;
+
+        console.log("ok db insert");
+    })
+})
+
 
 module.exports = router;

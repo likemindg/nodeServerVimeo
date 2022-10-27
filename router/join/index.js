@@ -31,6 +31,9 @@ router.post('/', function(req, res){
         if(err) throw err;
 
         console.log("ok db insert");
+        // console.log(rows);
+        res.render('welcome.ejs', {'name' : name})
+
     })
 })
 
